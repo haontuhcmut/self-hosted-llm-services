@@ -1,0 +1,45 @@
+[project]
+name = "self-hosted-llm-services"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi[standard]>=0.141.1",
+]
+
+[dependency-groups]
+dev = [
+    "black[d]>=26.5.1",
+    "isort>=8.0.1",
+    "pre-commit>=4.6.2",
+    "ruff>=0.16.3",
+]
+
+[tool.ruff]
+target-version = "py314"
+line-length = 100
+src = ["app", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "E",      # pycodestyle
+    "W",      # warnings
+    "F",      # pyflakes
+    "I",      # isort
+    "B",      # flake8-bugbear
+    "UP",     # pyupgrade
+    "SIM",     # simplify
+]
+
+ignore = [
+    "E501",   # line too long - formatter handles this
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["app"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
