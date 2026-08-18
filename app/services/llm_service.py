@@ -6,7 +6,6 @@ from app.schemas.response import ChatCompletionResponse
 
 
 class LLMService(Protocol):
-
     async def chat(
         self,
         request: ChatCompletionRequest,

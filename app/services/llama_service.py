@@ -2,7 +2,6 @@ import httpx
 
 from app.schemas.request import ChatCompletionRequest
 from app.schemas.response import ChatCompletionResponse
-from app.config import settings
 
 
 class LlamaCppService:

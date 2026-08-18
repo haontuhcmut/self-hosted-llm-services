@@ -5,9 +5,8 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 
-
 logger = logging.getLogger("uvicorn.access")
-logger.disabled = True #turn-off log from uvicorn.access
+logger.disabled = True  # turn-off log from uvicorn.access
 
 
 def register_middleware(app: FastAPI):
