@@ -1,7 +1,3 @@
-.idea/
-.venv/
-.env
-.models/*
 __pycache__/
 *.py[cod]
 **/__pycache__
