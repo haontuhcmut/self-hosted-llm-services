@@ -8,8 +8,13 @@ services:
       - "8000:8000"
     volumes:
       - ./app:/app/app
+    env_file:
+      - .env
     environment:
       - ENV=dev
+    depends_on:
+      llama-server:
+        condition: service_healthy
     restart: unless-stopped
 
   llama-server:
@@ -37,8 +42,12 @@ services:
       --threads ${LLAMA_THREADS:-8}
 
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:${LLAMA_PORT}/health"]
       interval: 10s
       timeout: 5s
       retries: 5
       start_period: 20s
+
+networks:
+  llm-network:
+    driver: bridge
